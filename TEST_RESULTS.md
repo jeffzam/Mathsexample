@@ -10,4 +10,8 @@ Covered: API connection gate; requested endpoint/model/authorization; omission o
 
 `pdftotext /tmp/addition-smoke.pdf -` — confirmed student, all ten answered sums, timing, highest level 10/10, score 10/10, and completion status.
 
-API responses were mocked. No real API key was available, so live authentication, current open-mistral-7b availability, and Mistral CORS acceptance are unverified. Managed Chromium blocks file navigation by administrator policy; browser workflow tests used a temporary loopback HTTP server instead. This does not verify file-origin CORS or file-origin storage behaviour. Reports are saved locally in the browser, not to a shared backend.
+API responses were mocked. No real API key was available, so live authentication, current gpt-4o-mini availability, and OpenAI CORS acceptance are unverified. Managed Chromium blocks file navigation by administrator policy; browser workflow tests used a temporary loopback HTTP server instead. This does not verify file-origin CORS or file-origin storage behaviour. Reports are saved locally in the browser, not to a shared backend.
+
+## OpenAI migration validation
+
+Switched the endpoint to https://api.openai.com/v1/chat/completions and model to gpt-4o-mini. Updated the browser test to assert the OpenAI endpoint/model and to verify a rejected key leaves the app locked, then permits retry with a valid key. Full mocked workflow rerun: PASS. Live OpenAI requests remain unverified without a user API key.
